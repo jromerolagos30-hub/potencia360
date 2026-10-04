@@ -1,9 +1,6 @@
-PotencIA 360 V7
-- Home rediseñado con imagen de plataforma educativa.
-- Buscador funcional y categorías.
-- Cursos desde Supabase, con catalog.json como respaldo temporal.
-- Portada visual de respaldo cuando una imagen externa falla.
-- Rutas de aprendizaje y sección empresas.
-- PotencIA IA destacado.
-- Admin Supabase conservado + botón Vista previa.
-- Responsive PC/móvil.
+PotencIA 360 V7.1
+CORRECCIÓN:
+- Reparado error JavaScript de admin/index.html que impedía iniciar sesión.
+- Se mantiene Supabase Auth y RLS.
+- Mejor manejo de imagen rota en ficha.
+- El botón del proveedor ya no queda silenciosamente en # si falta URL.
