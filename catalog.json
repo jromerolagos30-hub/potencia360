@@ -1,62 +1,39 @@
 [
   {
-    "id": 1,
-    "icon": "📊",
+    "id": "claude-code",
     "provider": "Udemy",
-    "title": "Power BI: curso seleccionado para profesionales",
-    "category": "Datos y Analítica",
-    "level": "Principiante",
-    "duration": "",
-    "price": "Precio en Udemy",
-    "status": "Publicado",
-    "featured": "Sí",
-    "url": "",
-    "desc": "",
-    "tags": "power bi,dashboard,datos"
-  },
-  {
-    "id": 2,
-    "icon": "🤖",
-    "provider": "Udemy",
-    "title": "IA generativa y productividad profesional",
+    "title": "Curso Completo de Claude Code: Crea Aplicaciones con IA",
+    "subtitle": "Domina Claude Code a nivel profesional y crea aplicaciones reales y seguras con agentes de IA, MCP, Hooks, Skills y más.",
+    "instructor": "Santiago Hernández",
     "category": "Inteligencia Artificial",
-    "level": "Todos los niveles",
-    "duration": "",
-    "price": "Precio en Udemy",
-    "status": "Publicado",
-    "featured": "Sí",
-    "url": "",
-    "desc": "",
-    "tags": "ia,prompting,productividad"
-  },
-  {
-    "id": 3,
-    "icon": "🦺",
-    "provider": "PotencIA 360",
-    "title": "IA aplicada a Seguridad y Salud en el Trabajo",
-    "category": "Seguridad y SST",
     "level": "Intermedio",
-    "duration": "",
-    "price": "Próximamente",
+    "language": "Español",
+    "duration": "13 h",
+    "lessons": "72 secciones",
+    "rating": "4.7",
+    "students": "16,825",
+    "updated": "09/2026",
+    "price": "S/ 29.90",
+    "url": "https://www.udemy.com/",
+    "image": "",
+    "tags": [
+      "Claude Code",
+      "Agentes IA",
+      "IA generativa",
+      "Desarrollo"
+    ],
+    "learning": [
+      "Dominar Claude Code desde cero hasta un flujo profesional.",
+      "Configurar Claude Code en terminal y entornos de desarrollo.",
+      "Construir sistemas con agentes y subagentes especializados.",
+      "Aplicar MCP, Hooks, Skills y automatizaciones en proyectos reales."
+    ],
+    "requirements": [
+      "Computadora con conexión a Internet.",
+      "Interés por experimentar con herramientas modernas de IA."
+    ],
+    "description": "Curso externo seleccionado por PotencIA 360 para profesionales que desean desarrollar aplicaciones y automatizaciones con IA.",
     "status": "Publicado",
-    "featured": "Sí",
-    "url": "",
-    "desc": "",
-    "tags": "sst,seguridad,ia"
-  },
-  {
-    "id": 4,
-    "icon": "⚡",
-    "provider": "PotencIA 360",
-    "title": "Crea aplicaciones para SST con IA y automatización",
-    "category": "Automatización",
-    "level": "Intermedio",
-    "duration": "",
-    "price": "Próximamente",
-    "status": "Publicado",
-    "featured": "Sí",
-    "url": "",
-    "desc": "",
-    "tags": "apps,ia,automatización,sst"
+    "featured": true
   }
 ]

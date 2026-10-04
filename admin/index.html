@@ -1,30 +1,20 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Administrador | PotencIA 360</title>
-<style>
-body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#10233f}.wrap{max-width:1000px;margin:40px auto;padding:20px}
-.box{background:#fff;border:1px solid #dce3ed;border-radius:18px;padding:28px;box-shadow:0 8px 30px #0b24420d}
-h1{margin-top:0}.note{background:#fff7dc;border:1px solid #efd777;padding:14px;border-radius:10px;margin:18px 0}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{font-size:13px;font-weight:bold}input,select,textarea{width:100%;box-sizing:border-box;padding:11px;border:1px solid #ccd5e1;border-radius:9px;margin-top:5px}
-.full{grid-column:1/-1}button{background:#0b72e7;color:#fff;border:0;padding:11px 16px;border-radius:9px;font-weight:bold;cursor:pointer}
-pre{background:#0b1f3a;color:#dff3ff;padding:16px;border-radius:12px;overflow:auto;max-height:360px}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.full{grid-column:auto}}
-</style></head><body><div class="wrap"><div class="box">
-<h1>PotencIA 360 · Administrador</h1>
-<p>Panel de preparación del catálogo.</p>
-<div class="note"><b>Seguridad:</b> esta V3 separa el panel de la página pública, pero todavía no activa autenticación real. No uses este panel para información sensible. El siguiente paso será conectar autenticación + base de datos.</div>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin | PotencIA 360</title>
+<style>body{margin:0;font-family:Arial;background:#f4f7fb;color:#10233f}.wrap{max-width:1050px;margin:30px auto;padding:20px}.box{background:white;padding:26px;border-radius:18px;border:1px solid #dce5ef}.warn{background:#fff6d8;border:1px solid #edd273;padding:12px;border-radius:9px;margin:15px 0}.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}.full{grid-column:1/-1}.two{grid-column:span 2}label{font-size:12px;font-weight:bold}input,select,textarea{width:100%;box-sizing:border-box;padding:10px;border:1px solid #ccd6e2;border-radius:8px;margin-top:5px}textarea{min-height:80px}button{background:#0878ef;color:#fff;border:0;padding:11px 16px;border-radius:9px;font-weight:bold;cursor:pointer}pre{background:#071e3d;color:#dff3ff;padding:15px;border-radius:12px;overflow:auto}@media(max-width:750px){.grid{grid-template-columns:1fr}.full,.two{grid-column:auto}}</style></head><body><div class="wrap"><div class="box">
+<h1>Administrador · PotencIA 360</h1><div class="warn"><b>V4 de estructura:</b> este formulario prepara la ficha completa. Aún falta Supabase para autenticación y publicación persistente.</div>
 <div class="grid">
-<div><label>Proveedor<select id="p"><option>Udemy</option><option>PotencIA 360</option></select></label></div>
-<div><label>Categoría<select id="c"><option>Inteligencia Artificial</option><option>Tecnología</option><option>Datos y Analítica</option><option>Automatización</option><option>Ingeniería</option><option>Seguridad y SST</option><option>Negocios</option></select></label></div>
-<div class="full"><label>Nombre<input id="t"></label></div>
-<div><label>Nivel<select id="l"><option>Principiante</option><option>Intermedio</option><option>Avanzado</option><option>Todos los niveles</option></select></label></div>
-<div><label>Precio<input id="pr" placeholder="S/ 79.90"></label></div>
-<div class="full"><label>URL<input id="u" placeholder="https://..."></label></div>
-<div class="full"><label>Etiquetas<input id="tags" placeholder="power bi, datos, dashboard"></label></div>
-</div><p><button onclick="add()">Agregar al borrador</button></p>
-<pre id="out">[]</pre>
-</div></div>
-<script>
-let data=[]; function add(){let title=t.value.trim();if(!title)return alert('Ingresa el nombre');
-data.push({id:Date.now(),provider:p.value,title,category:c.value,level:l.value,price:pr.value||'Consultar',url:u.value,tags:tags.value,status:'Publicado'});
-out.textContent=JSON.stringify(data,null,2);t.value='';}
+<div><label>Proveedor<select id="provider"><option>Udemy</option><option>PotencIA 360</option></select></label></div><div class="two"><label>Título<input id="title"></label></div>
+<div class="full"><label>Resumen corto<input id="subtitle"></label></div>
+<div><label>Instructor<input id="instructor"></label></div><div><label>Categoría<select id="category"><option>Inteligencia Artificial</option><option>Tecnología</option><option>Datos y Analítica</option><option>Automatización</option><option>Ingeniería</option><option>Seguridad y SST</option><option>Negocios</option></select></label></div><div><label>Nivel<select id="level"><option>Principiante</option><option>Intermedio</option><option>Avanzado</option><option>Todos los niveles</option></select></label></div>
+<div><label>Idioma<input id="language" value="Español"></label></div><div><label>Duración<input id="duration" placeholder="13 h"></label></div><div><label>N.º clases/secciones<input id="lessons"></label></div>
+<div><label>Valoración<input id="rating"></label></div><div><label>Estudiantes<input id="students"></label></div><div><label>Última actualización<input id="updated"></label></div>
+<div><label>Precio<input id="price"></label></div><div class="two"><label>URL externa<input id="url"></label></div>
+<div class="full"><label>Etiquetas (separadas por coma)<input id="tags"></label></div>
+<div class="full"><label>Qué aprenderás (un punto por línea)<textarea id="learning"></textarea></label></div>
+<div class="full"><label>Requisitos (uno por línea)<textarea id="requirements"></textarea></label></div>
+<div class="full"><label>Descripción<textarea id="description"></textarea></label></div>
+</div><p><button onclick="make()">Generar ficha JSON</button></p><pre id="out">{}</pre>
+</div></div><script>
+function lines(id){return document.getElementById(id).value.split('\n').map(x=>x.trim()).filter(Boolean)}
+function make(){let o={id:title.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''),
+provider:provider.value,title:title.value,subtitle:subtitle.value,instructor:instructor.value,category:category.value,level:level.value,language:language.value,duration:duration.value,lessons:lessons.value,rating:rating.value,students:students.value,updated:updated.value,price:price.value,url:url.value,tags:tags.value.split(',').map(x=>x.trim()).filter(Boolean),learning:lines('learning'),requirements:lines('requirements'),description:description.value,status:'Publicado',featured:false};out.textContent=JSON.stringify(o,null,2)}
 </script></body></html>

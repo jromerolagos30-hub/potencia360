@@ -1,0 +1,32 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Curso | PotencIA 360</title><style>
+:root{--navy:#071e3d;--blue:#0878ef;--cyan:#20b8ff;--line:#dce5ef;--muted:#65748a}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:#14233b;background:#fff}a{text-decoration:none}
+header{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:5}
+.logo{font-weight:900;font-size:22px;color:var(--navy)}.logo b{color:var(--blue)}.btn{display:inline-block;border:0;border-radius:10px;padding:12px 16px;font-weight:800;cursor:pointer}.primary{background:var(--blue);color:#fff}
+.hero{background:linear-gradient(115deg,#071e3d,#0b3768);color:#fff;padding:44px 5% 52px}.heroIn{max-width:1180px;margin:auto;display:grid;grid-template-columns:1fr 340px;gap:44px}
+.crumb{font-size:13px;color:#8fd6ff;margin-bottom:18px}.hero h1{font-size:38px;line-height:1.08;margin:0 0 15px}.subtitle{font-size:18px;line-height:1.5;color:#d9eaff}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.tag{font-size:12px;border:1px solid #ffffff45;padding:6px 9px;border-radius:999px}
+.metrics{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;color:#dceaff}.side{background:#fff;color:#14233b;border-radius:18px;padding:22px;box-shadow:0 15px 50px #00152e55;align-self:start}
+.thumb{height:170px;border-radius:12px;background:linear-gradient(135deg,#eef6ff,#d9ebff);display:flex;align-items:center;justify-content:center;font-size:58px;margin-bottom:18px}.price{font-size:26px;font-weight:900;margin:10px 0}.side .btn{width:100%;text-align:center}.fine{font-size:12px;color:var(--muted);line-height:1.45;margin-top:12px}
+main{max-width:1180px;margin:34px auto;padding:0 5%;display:grid;grid-template-columns:1fr 340px;gap:44px}.content{min-width:0}
+.box{border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:22px}.box h2{margin-top:0}.learn{display:grid;grid-template-columns:1fr 1fr;gap:13px}.learn div:before{content:"✓";color:#0b9a6b;font-weight:900;margin-right:9px}
+.ai{background:#eef7ff;border:1px solid #cce6ff}.ai h2{color:#075cab}.ai input{width:100%;padding:13px;border:1px solid #b8cee4;border-radius:10px;margin:8px 0 10px}
+.providerCard{border:1px solid var(--line);border-radius:14px;padding:18px;position:sticky;top:88px}.providerCard b{display:block;margin-bottom:7px}
+@media(max-width:850px){.heroIn,main{grid-template-columns:1fr}.hero h1{font-size:30px}.learn{grid-template-columns:1fr}.providerCard{position:static}}
+</style></head><body>
+<header><a href="/" class="logo">Potenc<b>IA</b> 360</a><a href="/" class="btn">Explorar cursos</a></header>
+<section class="hero"><div class="heroIn"><div><div class="crumb" id="crumb"></div><h1 id="title">Cargando...</h1><div class="subtitle" id="subtitle"></div><div class="tags" id="tags"></div><div class="metrics" id="metrics"></div></div>
+<aside class="side"><div class="thumb">🤖</div><div style="font-size:13px;color:#65748a">Proveedor</div><b id="provider"></b><div class="price" id="price"></div><a id="external" class="btn primary" target="_blank" rel="noopener">Ver curso en Udemy →</a><div class="fine">La compra y el acceso al curso externo se realizan en la plataforma del proveedor. El precio puede cambiar.</div></aside></div></section>
+<main><div class="content"><section class="box"><h2>Lo que aprenderás</h2><div class="learn" id="learning"></div></section>
+<section class="box ai"><h2>¿Este curso es adecuado para mí?</h2><p>Cuéntale a PotencIA IA tu objetivo profesional. En la siguiente etapa conectaremos este análisis al recomendador.</p><input placeholder="Ej. Trabajo en SST y quiero aprender a crear aplicaciones con IA"><button class="btn primary">Analizar con PotencIA IA</button></section>
+<section class="box"><h2>Requisitos</h2><ul id="requirements"></ul></section><section class="box"><h2>Descripción</h2><p id="description"></p></section></div>
+<aside><div class="providerCard"><b>Selección PotencIA 360</b><p style="color:#65748a;line-height:1.5">Esta ficha resume información relevante para ayudarte a decidir. Para temario completo, condiciones y compra, consulta al proveedor.</p><div id="details"></div></div></aside></main>
+<script>
+async function go(){let id=new URLSearchParams(location.search).get('id')||'claude-code';let all=await (await fetch('/catalog.json',{cache:'no-store'})).json();let c=all.find(x=>x.id===id)||all[0];
+title.textContent=c.title;subtitle.textContent=c.subtitle||'';provider.textContent=c.provider;price.textContent=c.price||'Consultar';external.href=c.url||'#';
+crumb.textContent=(c.category||'Cursos')+' › '+c.provider;tags.innerHTML=(c.tags||[]).map(x=>`<span class="tag">${x}</span>`).join('');
+metrics.innerHTML=`<span>★ ${c.rating||'—'}</span><span>${c.students||'—'} estudiantes</span><span>${c.duration||'—'}</span><span>${c.language||'—'}</span>`;
+learning.innerHTML=(c.learning||[]).map(x=>`<div>${x}</div>`).join('');requirements.innerHTML=(c.requirements||[]).map(x=>`<li>${x}</li>`).join('');
+description.textContent=c.description||'';details.innerHTML=`<p><b>Instructor</b>${c.instructor||'—'}</p><p><b>Nivel</b>${c.level||'—'}</p><p><b>Actualización</b>${c.updated||'—'}</p><p><b>Contenido</b>${c.lessons||'—'}</p>`}
+go()</script></body></html>
