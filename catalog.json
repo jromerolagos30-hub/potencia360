@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "icon": "📊",
+    "provider": "Udemy",
+    "title": "Power BI: curso seleccionado para profesionales",
+    "category": "Datos y Analítica",
+    "level": "Principiante",
+    "duration": "",
+    "price": "Precio en Udemy",
+    "status": "Publicado",
+    "featured": "Sí",
+    "url": "",
+    "desc": "",
+    "tags": "power bi,dashboard,datos"
+  },
+  {
+    "id": 2,
+    "icon": "🤖",
+    "provider": "Udemy",
+    "title": "IA generativa y productividad profesional",
+    "category": "Inteligencia Artificial",
+    "level": "Todos los niveles",
+    "duration": "",
+    "price": "Precio en Udemy",
+    "status": "Publicado",
+    "featured": "Sí",
+    "url": "",
+    "desc": "",
+    "tags": "ia,prompting,productividad"
+  },
+  {
+    "id": 3,
+    "icon": "🦺",
+    "provider": "PotencIA 360",
+    "title": "IA aplicada a Seguridad y Salud en el Trabajo",
+    "category": "Seguridad y SST",
+    "level": "Intermedio",
+    "duration": "",
+    "price": "Próximamente",
+    "status": "Publicado",
+    "featured": "Sí",
+    "url": "",
+    "desc": "",
+    "tags": "sst,seguridad,ia"
+  },
+  {
+    "id": 4,
+    "icon": "⚡",
+    "provider": "PotencIA 360",
+    "title": "Crea aplicaciones para SST con IA y automatización",
+    "category": "Automatización",
+    "level": "Intermedio",
+    "duration": "",
+    "price": "Próximamente",
+    "status": "Publicado",
+    "featured": "Sí",
+    "url": "",
+    "desc": "",
+    "tags": "apps,ia,automatización,sst"
+  }
+]

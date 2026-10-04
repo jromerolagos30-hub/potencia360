@@ -1,0 +1,30 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Administrador | PotencIA 360</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#10233f}.wrap{max-width:1000px;margin:40px auto;padding:20px}
+.box{background:#fff;border:1px solid #dce3ed;border-radius:18px;padding:28px;box-shadow:0 8px 30px #0b24420d}
+h1{margin-top:0}.note{background:#fff7dc;border:1px solid #efd777;padding:14px;border-radius:10px;margin:18px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{font-size:13px;font-weight:bold}input,select,textarea{width:100%;box-sizing:border-box;padding:11px;border:1px solid #ccd5e1;border-radius:9px;margin-top:5px}
+.full{grid-column:1/-1}button{background:#0b72e7;color:#fff;border:0;padding:11px 16px;border-radius:9px;font-weight:bold;cursor:pointer}
+pre{background:#0b1f3a;color:#dff3ff;padding:16px;border-radius:12px;overflow:auto;max-height:360px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.full{grid-column:auto}}
+</style></head><body><div class="wrap"><div class="box">
+<h1>PotencIA 360 · Administrador</h1>
+<p>Panel de preparación del catálogo.</p>
+<div class="note"><b>Seguridad:</b> esta V3 separa el panel de la página pública, pero todavía no activa autenticación real. No uses este panel para información sensible. El siguiente paso será conectar autenticación + base de datos.</div>
+<div class="grid">
+<div><label>Proveedor<select id="p"><option>Udemy</option><option>PotencIA 360</option></select></label></div>
+<div><label>Categoría<select id="c"><option>Inteligencia Artificial</option><option>Tecnología</option><option>Datos y Analítica</option><option>Automatización</option><option>Ingeniería</option><option>Seguridad y SST</option><option>Negocios</option></select></label></div>
+<div class="full"><label>Nombre<input id="t"></label></div>
+<div><label>Nivel<select id="l"><option>Principiante</option><option>Intermedio</option><option>Avanzado</option><option>Todos los niveles</option></select></label></div>
+<div><label>Precio<input id="pr" placeholder="S/ 79.90"></label></div>
+<div class="full"><label>URL<input id="u" placeholder="https://..."></label></div>
+<div class="full"><label>Etiquetas<input id="tags" placeholder="power bi, datos, dashboard"></label></div>
+</div><p><button onclick="add()">Agregar al borrador</button></p>
+<pre id="out">[]</pre>
+</div></div>
+<script>
+let data=[]; function add(){let title=t.value.trim();if(!title)return alert('Ingresa el nombre');
+data.push({id:Date.now(),provider:p.value,title,category:c.value,level:l.value,price:pr.value||'Consultar',url:u.value,tags:tags.value,status:'Publicado'});
+out.textContent=JSON.stringify(data,null,2);t.value='';}
+</script></body></html>
