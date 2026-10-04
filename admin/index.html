@@ -18,7 +18,7 @@ textarea{min-height:80px}button,.btn{background:var(--blue);color:#fff;border:0;
 <label>Correo<input id="email" type="email"></label><br><br><label>Contraseña<input id="password" type="password"></label>
 <div id="loginMsg"></div><button style="width:100%;margin-top:16px" onclick="login()">Ingresar</button></section>
 
-<section id="app" class="box hidden"><div class="top"><div><div class="logo">Potenc<i>IA</i> 360</div><small id="who"></small></div><button class="secondary" onclick="logout()">Cerrar sesión</button></div>
+<section id="app" class="box hidden"><div class="top"><div><div class="logo">Potenc<i>IA</i> 360</div><small id="who"></small><div style="font-size:11px;color:#60738d;margin-top:3px">Panel de gestión · V7</div></div><button class="secondary" onclick="logout()">Cerrar sesión</button></div>
 <div class="import"><b>Importar curso desde URL</b><p style="color:var(--muted);font-size:13px">Pega una URL de Udemy. En esta fase validamos la URL y preparamos la ficha; la extracción automática completa requerirá el importador backend autorizado.</p>
 <div class="importrow"><input id="importUrl" placeholder="https://www.udemy.com/course/..."><button onclick="prepareUrl()">Importar información</button></div><div id="importMsg"></div></div>
 <h2 id="formTitle">Nuevo curso</h2><input id="edit_id" type="hidden">
@@ -32,7 +32,7 @@ textarea{min-height:80px}button,.btn{background:var(--blue);color:#fff;border:0;
 <div class="full"><label>Etiquetas (coma)<input id="tags"></label></div><div class="full"><label>Qué aprenderás (uno por línea)<textarea id="learning"></textarea></label></div>
 <div class="full"><label>Requisitos (uno por línea)<textarea id="requirements"></textarea></label></div><div class="full"><label>Descripción<textarea id="description"></textarea></label></div>
 <div><label>Estado<select id="status"><option value="draft">Borrador</option><option value="published">Publicado</option></select></label></div><div><label>Destacado<select id="featured"><option value="false">No</option><option value="true">Sí</option></select></label></div>
-</div><div id="saveMsg"></div><div class="actions"><button onclick="saveCourse()">Guardar curso</button><button class="secondary" onclick="clearForm()">Nuevo / limpiar</button></div>
+</div><div id="saveMsg"></div><div class="actions"><button onclick="saveCourse()">Guardar curso</button><button class="secondary" onclick="previewCourse()">Vista previa</button><button class="secondary" onclick="clearForm()">Nuevo / limpiar</button></div>
 <div class="list"><h2>Cursos en Supabase</h2><div id="courses">Cargando...</div></div></section>
 </div>
 <script>
@@ -52,6 +52,6 @@ async function saveCourse(){if(!val('title'))return flash('saveMsg','El título 
 async function loadCourses(){let {data,error}=await sb.from('courses').select('*').order('created_at',{ascending:false});if(error)return $('courses').textContent=error.message;if(!data.length)return $('courses').innerHTML='<p>Aún no hay cursos guardados en Supabase.</p>';window.rows=data;$('courses').innerHTML=`<table><tr><th>Curso</th><th>Proveedor</th><th>Estado</th><th>Acciones</th></tr>${data.map((c,i)=>`<tr><td>${c.title}</td><td>${c.provider}</td><td>${c.status}</td><td><button class="secondary" onclick="editCourse(${i})">Editar</button> <button class="danger" onclick="delCourse('${c.id}')">Eliminar</button></td></tr>`).join('')}</table>`}
 function editCourse(i){let c=window.rows[i];$('edit_id').value=c.id;for(let k of ['provider','title','subtitle','instructor','category','level','language','duration','lessons','rating','reviews','students','updated_label','price','original_price','image_url','course_url','reviews_url','description','status'])if($(k))$(k).value=c[k]??'';$('featured').value=String(!!c.featured);$('tags').value=(c.tags||[]).join(', ');$('learning').value=(c.learning||[]).join('\n');$('requirements').value=(c.requirements||[]).join('\n');$('formTitle').textContent='Editar curso';scrollTo({top:250,behavior:'smooth'})}
 async function delCourse(id){if(!confirm('¿Eliminar este curso?'))return;let {error}=await sb.from('courses').delete().eq('id',id);if(error)return alert(error.message);loadCourses()}
-function clearForm(scroll=true){document.querySelectorAll('#app input:not(#email),#app textarea').forEach(e=>e.value='');$('language').value='Español';$('provider').value='Udemy';$('status').value='draft';$('featured').value='false';$('formTitle').textContent='Nuevo curso';if(scroll)scrollTo({top:200,behavior:'smooth'})}
+function previewCourse(){let s=slug(val('title'));if(!s)return flash('saveMsg','Ingresa un título para generar la vista previa.',true);window.open('/curso/?id='+encodeURIComponent(s),'_blank')}\nfunction clearForm(scroll=true){document.querySelectorAll('#app input:not(#email),#app textarea').forEach(e=>e.value='');$('language').value='Español';$('provider').value='Udemy';$('status').value='draft';$('featured').value='false';$('formTitle').textContent='Nuevo curso';if(scroll)scrollTo({top:200,behavior:'smooth'})}
 boot();
 </script></body></html>

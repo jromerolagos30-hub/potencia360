@@ -1,7 +1,9 @@
-PotencIA 360 V6
-- Supabase conectado con publishable key + RLS.
-- /admin/ tiene login real con Supabase Auth.
-- Admin crea, edita, publica y elimina cursos.
-- Home y ficha leen cursos publicados desde Supabase; catalog.json queda como fallback.
-- Importar URL prepara la ficha. La extracción automática de Udemy requiere un backend/importador separado y respetar acceso autorizado.
-IMPORTANTE: nunca colocar secret/service_role key en frontend.
+PotencIA 360 V7
+- Home rediseñado con imagen de plataforma educativa.
+- Buscador funcional y categorías.
+- Cursos desde Supabase, con catalog.json como respaldo temporal.
+- Portada visual de respaldo cuando una imagen externa falla.
+- Rutas de aprendizaje y sección empresas.
+- PotencIA IA destacado.
+- Admin Supabase conservado + botón Vista previa.
+- Responsive PC/móvil.
