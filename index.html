@@ -42,6 +42,6 @@ function render(list){document.getElementById('courseGrid').innerHTML=list.lengt
 function filterCourses(){let q=document.getElementById('q').value.toLowerCase().trim();render(!q?COURSES:COURSES.filter(c=>[c.title,c.subtitle,c.category,c.provider,...(c.tags||[])].join(' ').toLowerCase().includes(q)));document.getElementById('cursos').scrollIntoView({behavior:'smooth'})}
 function setQ(q){document.getElementById('q').value=q;filterCourses()}
 document.getElementById('q').addEventListener('keydown',e=>{if(e.key==='Enter')filterCourses()})
-async function load(){let data=[];try{let r=await SB.from('courses').select('*').eq('status','published').order('featured',{ascending:false}).order('created_at',{ascending:false});if(r.data?.length)data=r.data}catch(e){}if(!data.length)try{data=await(await fetch('/catalog.json',{cache:'no-store'})).json()}catch(e){}COURSES=data;render(COURSES)}
+async function load(){let data=[];try{let r=await SB.from('courses').select('*').eq('status','published').order('featured',{ascending:false}).order('created_at',{ascending:false});if(r.error)throw r.error;data=r.data||[]}catch(e){console.error(e)}COURSES=data;render(COURSES)}
 load();
 </script></body></html>
