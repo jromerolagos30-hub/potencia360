@@ -3,7 +3,7 @@
     "id": "claude-code",
     "provider": "Udemy",
     "title": "Curso Completo de Claude Code: Crea Aplicaciones con IA",
-    "subtitle": "Domina Claude Code a nivel profesional y crea aplicaciones reales y seguras con agentes de IA, MCP, Hooks, Skills y más.",
+    "subtitle": "Domina Claude Code a nivel profesional y crea aplicaciones reales y seguras con Agentes de IA, MCP, Hooks, Skills y más.",
     "instructor": "Santiago Hernández",
     "category": "Inteligencia Artificial",
     "level": "Intermedio",
@@ -11,11 +11,14 @@
     "duration": "13 h",
     "lessons": "72 secciones",
     "rating": "4.7",
+    "reviews": "2,641",
     "students": "16,825",
     "updated": "09/2026",
     "price": "S/ 29.90",
-    "url": "https://www.udemy.com/",
-    "image": "",
+    "original_price": "S/ 39.90",
+    "url": "https://www.udemy.com/course/curso-completo-de-claude-code-crea-aplicaciones-con-ia/",
+    "reviews_url": "https://www.udemy.com/course/curso-completo-de-claude-code-crea-aplicaciones-con-ia/#reviews",
+    "image_url": "https://img-c.udemycdn.com/course/480x270/6681075_4b6a.jpg",
     "tags": [
       "Claude Code",
       "Agentes IA",
@@ -23,16 +26,16 @@
       "Desarrollo"
     ],
     "learning": [
-      "Dominar Claude Code desde cero hasta un flujo profesional.",
-      "Configurar Claude Code en terminal y entornos de desarrollo.",
+      "Dominar Claude Code desde cero hasta un flujo profesional para crear aplicaciones reales.",
+      "Configurar y usar Claude Code en terminal y entornos de desarrollo.",
       "Construir sistemas con agentes y subagentes especializados.",
-      "Aplicar MCP, Hooks, Skills y automatizaciones en proyectos reales."
+      "Aplicar MCP, Hooks, Skills y automatización en proyectos con IA."
     ],
     "requirements": [
-      "Computadora con conexión a Internet.",
-      "Interés por experimentar con herramientas modernas de IA."
+      "Una computadora y conexión a Internet.",
+      "Interés por aprender y experimentar con herramientas modernas de IA."
     ],
-    "description": "Curso externo seleccionado por PotencIA 360 para profesionales que desean desarrollar aplicaciones y automatizaciones con IA.",
+    "description": "Curso externo seleccionado por PotencIA 360. La ficha reúne información clave para ayudarte a evaluar si encaja con tus objetivos. El contenido, disponibilidad, precio y condiciones finales corresponden al proveedor.",
     "status": "Publicado",
     "featured": true
   }
